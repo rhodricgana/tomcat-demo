@@ -15,9 +15,5 @@ node {
     stage('mvn-package') { 
         sh "${mvnHome}/bin/mvn package" 
     }
-    stage('tomcat-deploy') { 
-        sshagent(['ec2-user']) {
-            sh 'ssh -o StrictHostKeyChecking=no target/tomcat-demo.war ec2-user@172.31.24.160: /opt/tomcat/webapps'
-    }
   }
 }
